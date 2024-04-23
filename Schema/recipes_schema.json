@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Name": {"type": "string"},
+        "Sorte": {"type": "string"},
+        "Autor": {"type": "string"},
+        "Stammwuerze": {"type": "number"},
+        "Alkoholgehalt": {"type": "number"},
+        "Farbe": {"type": "number"},
+        "Bittere": {"type": "number"},
+        "Hauptguss": {"type": "number"},
+        "Nachguss": {"type": "number"},
+        "Sudhausausbeute": {"type": "number"},
+        "Malze": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Name": {"type": "string"},
+                    "Menge": {"type": "number"}
+                },
+                "required": ["Name" ,"Menge"]
+            }
+        },
+        "Hopfen": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Name": {"type": "string"},
+                    "Menge": {"type": "number"},
+                    "Kochzeit": {"type": "integer"}
+                },
+                "required": ["Name", "Menge", "Kochzeit"]
+            }
+        },
+        "Abmaischtemperatur": {"type": "integer"},
+        "Infusion_Einmaischtemperatur": {"type": "integer"},
+        "Rasten": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Temperatur": {"type": "integer"},
+                    "Dauer": {"type": "integer"}
+                },
+                "required": ["Temperatur", "Dauer"]
+            }
+        },
+      "Hefe": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Name": {"type": "string"},
+                    "Menge": {"type": "number"}
+                },
+                "required": ["Name", "Menge"]
+            }
+        },
+        "Gaertemperatur": {"type": "integer"},
+        "Gaeerzeit": {"type": "integer"},
+        "Lagerung": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Temperatur": {"type": "integer"},
+                    "Dauer": {"type": "integer"}
+                },
+                "required": ["Temperatur", "Dauer"]
+            }
+        },
+        "Karbonisierung": {"type": "number"},
+        "Karbonisierungsmethode": {"type": "string"},
+        "Beschreibung": {"type": "string"}
+    },
+   "required": ["Name", "Sorte", "Autor", "Stammwuerze", "Alkoholgehalt", "Farbe", "Bittere", "Hauptguss", "Nachguss", "Sudhausausbeute", "Malze", "Hopfen", "Abmaischtemperatur", "Infusion_Einmaischtemperatur", "Rasten", "Hefe", "Gaertemperatur", "Gaeerzeit", "Karbonisierung", "Beschreibung"],
+   "additionalProperties": false,
+   "title": "Rezept"
+}

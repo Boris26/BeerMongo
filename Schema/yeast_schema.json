@@ -1,0 +1,23 @@
+{
+   "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "Beschreibung": {
+        "type": "string"
+      },
+      "Endvergärungsgrad": {
+        "type": "string"
+        },
+      "Gärtemperatur": {
+        "type": "string"
+        }
+    },
+    "required": ["name", "type", "Gärtemperatur"],
+    "additionalProperties": false,
+    "title": "Hefe"
+}

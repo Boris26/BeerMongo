@@ -1,0 +1,12 @@
+{
+  "type": "object",
+    "properties": {
+        "Name": {"type": "string"},
+        "type": {"type": "string"},
+        "Alphasäure": {"type": "string"},
+        "Beschreibung": {"type": "string"}
+},
+  "required": ["Name", "type", "Alphasäure", "Beschreibung"],
+  "additionalProperties": false,
+  "title": "Hopfen"
+}

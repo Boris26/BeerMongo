@@ -1,0 +1,17 @@
+{
+  "type": "object",
+    "properties": {
+        "Name": {
+            "type": "string"
+        },
+        "Beschreibung": {
+            "type": "string"
+        },
+        "Farbe": {
+            "type": "string"
+        }
+    },
+    "required": ["Name", "Farbe"],
+    "additionalProperties": false,
+    "title": "Malz"
+}
