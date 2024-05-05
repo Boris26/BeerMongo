@@ -4,14 +4,14 @@
         "Name": {
             "type": "string"
         },
-        "Beschreibung": {
+        "Description": {
             "type": "string"
         },
-        "Farbe": {
+        "Color": {
             "type": "string"
         }
     },
-    "required": ["Name", "Farbe"],
+    "required": ["Name"],
     "additionalProperties": false,
-    "title": "Malz"
+    "title": "Malt"
 }

@@ -1,23 +1,27 @@
 {
    "type": "object",
     "properties": {
-      "name": {
+      "Name": {
         "type": "string"
       },
-      "type": {
+      "Type": {
         "type": "string"
       },
-      "Beschreibung": {
+      "Description": {
         "type": "string"
       },
-      "Endvergärungsgrad": {
+      "FinalAttenuation": {
         "type": "string"
         },
-      "Gärtemperatur": {
+      "FermentationTemperature": {
         "type": "string"
+        },
+      "YeastType": {
+        "type": "string",
+        "enum": ["Obergärig", "Untergärig"]
         }
     },
-    "required": ["name", "type", "Gärtemperatur"],
+    "required": ["Name", "Type", "FermentationTemperature"],
     "additionalProperties": false,
     "title": "Hefe"
 }

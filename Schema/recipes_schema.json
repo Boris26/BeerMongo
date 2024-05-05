@@ -1,81 +1,86 @@
 {
     "type": "object",
     "properties": {
-        "Name": {"type": "string"},
-        "Sorte": {"type": "string"},
-        "Autor": {"type": "string"},
-        "Stammwuerze": {"type": "number"},
-        "Alkoholgehalt": {"type": "number"},
-        "Farbe": {"type": "number"},
-        "Bittere": {"type": "number"},
-        "Hauptguss": {"type": "number"},
-        "Nachguss": {"type": "number"},
-        "Sudhausausbeute": {"type": "number"},
-        "Malze": {
+        "Name": {"type": "string", "_comment": "Name des Bieres"},
+        "Style": {"type": "string", "_comment": "Bierstil"},
+        "Author": {"type": "string", "_comment": "Autor des Rezepts"},
+        "OriginalGravity": {"type": "number", "_comment": "Stammwürze"},
+        "AlcoholContent": {"type": "number", "_comment": "Alkoholgehalt"},
+        "Color": {"type": "number", "_comment": "Farbe"},
+        "Bitterness": {"type": "number", "_comment": "Bittere"},
+        "PrimaryMash": {"type": "number", "_comment": "Hauptguss"},
+        "Sparge": {"type": "number", "_comment": "Nachguss"},
+        "BrewhouseEfficiency": {"type": "number", "_comment": "Sudhausausbeute"},
+        "Malts": {
             "type": "array",
+            "_comment": "Malze",
             "items": {
                 "type": "object",
                 "properties": {
-                    "Name": {"type": "string"},
-                    "Menge": {"type": "number"}
+                    "Name": {"type": "string", "_comment": "Name des Malzes"},
+                    "Amount": {"type": "number", "_comment": "Menge des Malzes"}
                 },
-                "required": ["Name" ,"Menge"]
+                "required": ["Name" ,"Amount"]
             }
         },
-        "Hopfen": {
+        "Hops": {
             "type": "array",
+            "_comment": "Hopfen",
             "items": {
                 "type": "object",
                 "properties": {
-                    "Name": {"type": "string"},
-                    "Menge": {"type": "number"},
-                    "Kochzeit": {"type": "integer"}
+                    "Name": {"type": "string", "_comment": "Name des Hopfens"},
+                    "Amount": {"type": "number", "_comment": "Menge des Hopfens"},
+                    "BoilTime": {"type": "integer", "_comment": "Kochzeit des Hopfens"}
                 },
-                "required": ["Name", "Menge", "Kochzeit"]
+                "required": ["Name", "Amount", "BoilTime"]
             }
         },
-        "Abmaischtemperatur": {"type": "integer"},
-        "Infusion_Einmaischtemperatur": {"type": "integer"},
-        "Rasten": {
+        "MashOutTemperature": {"type": "integer", "_comment": "Abmaischtemperatur"},
+        "InfusionMashTemperature": {"type": "integer", "_comment": "Infusions-Einmaischtemperatur"},
+        "MashSteps": {
             "type": "array",
+            "_comment": "Rasten",
             "items": {
                 "type": "object",
                 "properties": {
-                    "Temperatur": {"type": "integer"},
-                    "Dauer": {"type": "integer"}
+                    "Temperature": {"type": "integer", "_comment": "Temperatur der Rast"},
+                    "Duration": {"type": "integer", "_comment": "Dauer der Rast"}
                 },
-                "required": ["Temperatur", "Dauer"]
+                "required": ["Temperature", "Duration"]
             }
         },
-      "Hefe": {
+        "Yeast": {
             "type": "array",
+            "_comment": "Hefe",
             "items": {
                 "type": "object",
                 "properties": {
-                    "Name": {"type": "string"},
-                    "Menge": {"type": "number"}
+                    "Name": {"type": "string", "_comment": "Name der Hefe"},
+                    "Amount": {"type": "number", "_comment": "Menge der Hefe"}
                 },
-                "required": ["Name", "Menge"]
+                "required": ["Name", "Amount"]
             }
         },
-        "Gaertemperatur": {"type": "integer"},
-        "Gaeerzeit": {"type": "integer"},
-        "Lagerung": {
+        "FermentationTemperature": {"type": "integer", "_comment": "Gärtemperatur"},
+        "FermentationTime": {"type": "integer", "_comment": "Gärdauer"},
+        "Conditioning": {
             "type": "array",
+            "_comment": "Lagerung",
             "items": {
                 "type": "object",
                 "properties": {
-                    "Temperatur": {"type": "integer"},
-                    "Dauer": {"type": "integer"}
+                    "Temperature": {"type": "integer", "_comment": "Lagerungstemperatur"},
+                    "Duration": {"type": "integer", "_comment": "Dauer der Lagerung"}
                 },
-                "required": ["Temperatur", "Dauer"]
+                "required": ["Temperature", "Duration"]
             }
         },
-        "Karbonisierung": {"type": "number"},
-        "Karbonisierungsmethode": {"type": "string"},
-        "Beschreibung": {"type": "string"}
+        "Carbonation": {"type": "number", "_comment": "Karbonisierung"},
+        "CarbonationMethod": {"type": "string", "_comment": "Karbonisierungsmethode"},
+        "Description": {"type": "string", "_comment": "Beschreibung des Bieres"}
     },
-   "required": ["Name", "Sorte", "Autor", "Stammwuerze", "Alkoholgehalt", "Farbe", "Bittere", "Hauptguss", "Nachguss", "Sudhausausbeute", "Malze", "Hopfen", "Abmaischtemperatur", "Infusion_Einmaischtemperatur", "Rasten", "Hefe", "Gaertemperatur", "Gaeerzeit", "Karbonisierung", "Beschreibung"],
+   "required": ["Name", "Style", "Author", "OriginalGravity", "AlcoholContent", "Color", "Bitterness", "PrimaryMash", "Sparge", "BrewhouseEfficiency", "Malts", "Hops", "MashOutTemperature", "InfusionMashTemperature", "MashSteps", "Yeast", "FermentationTemperature", "FermentationTime", "Conditioning", "Carbonation", "CarbonationMethod", "Description"],
    "additionalProperties": false,
-   "title": "Rezept"
+   "title": "Recipe"
 }

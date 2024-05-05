@@ -2,11 +2,11 @@
   "type": "object",
     "properties": {
         "Name": {"type": "string"},
-        "type": {"type": "string"},
-        "Alphasäure": {"type": "string"},
-        "Beschreibung": {"type": "string"}
+        "Type": {"type": "string"},
+        "Alpha": {"type": "string"},
+        "Description": {"type": "string"}
 },
-  "required": ["Name", "type", "Alphasäure", "Beschreibung"],
+  "required": ["Name", "Type"],
   "additionalProperties": false,
-  "title": "Hopfen"
+  "title": "Hops"
 }

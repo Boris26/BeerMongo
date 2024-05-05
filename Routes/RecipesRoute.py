@@ -1,50 +1,55 @@
-from flask import jsonify, request
+import json
+
+from flask import jsonify, request, Response
 from flask_restful import Resource
-from MongoDBController import MongoDBController
+
+from DBController.RecipesCollectionController import RecipesCollection
+
 
 class RecipesRoute(Resource) :
+
+    def __init__(self) :
+        self.__recipes = RecipesCollection()
     def get(self, id=None) :
         if id is None :
-            return self.__getAllRecipes()
+            return jsonify(self.__recipes.getAllRecipes())
         else :
-            return self.__getRecipeById(id)
+            return self.__recipes.getRecipeById(id)
 
     def post(self) :
         """Add a new recipe to the database"""
         data=request.get_json()
         try:
-            self.__addNewRecipe(data)
-            return jsonify({"message" :"Recipe added"})
+            result = self.__recipes.insertRecipe(data)
+            if result:
+                return Response(status=201, mimetype='application/json')
+            else:
+                return Response(json.dumps({"message" :result}), status=400, mimetype='application/json')
         except Exception as e:
-            return jsonify({"message" :str(e)})
+            return Response(json.dumps({"message" : e}), status=400, mimetype='application/json')
+
 
     def delete(self, id=None) :
         """Delete a recipe by id from the database"""
         if id is not None :
             try:
-                mongo = MongoDBController()
-                mongo.delete(id)
+                self.__recipes.deleteRecipe(id)
                 return jsonify({"message" :"Recipe with id " + id + " deleted"})
             except Exception as e:
                 return jsonify({"message" :str(e)})
         else :
             return jsonify({"message" :"Delete Hello, World!"})
 
-    def patch(self) :
-        return jsonify({"message" :"Patch Hello, World!"})
-
-    def __getAllRecipes(self):
-        """Get all recipes from the database"""
-        mongo = MongoDBController()
-        return mongo.getAllRecipes()
-
-    def __getRecipeById(self, id):
-        """Get a recipe by id from the database"""
-        mongo = MongoDBController()
-        return mongo.getRecipeById(id)
+    def patch(self, id=None) :
+        if id is not None :
+            data = request.get_json()
+            try :
+                self.__recipes.updateRecipe(id, data)
+                return jsonify({"message" :"Recipe with id " + id + " updated"})
+            except Exception as e :
+                return jsonify({"message" :str(e)})
+        else :
+            return jsonify({"message" :"No id provided"})
 
 
-    def __addNewRecipe(self, data):
-        """Add a new recipe to the database"""
-        mongo = MongoDBController()
-        return mongo.insert(data)
+
