@@ -1,3 +1,4 @@
+from SimplePyLoggerTool import logger, LogLevel
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
@@ -11,7 +12,7 @@ from Routes.IngredientsRoute import IngredientsRoute
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
-
+logger.log(LogLevel.INFO, "********* Logger initialized *********")
 api.add_resource(RecipesRoute, '/recipes', '/recipes/id:<string:id>')
 api.add_resource(MaltRoute, '/malt' , '/malt/id:<string:id>')
 api.add_resource(HopsRoute, '/hops' , '/hops/id:<string:id>')

@@ -78,9 +78,22 @@
         },
         "Carbonation": {"type": "number", "_comment": "Karbonisierung"},
         "CarbonationMethod": {"type": "string", "_comment": "Karbonisierungsmethode"},
-        "Description": {"type": "string", "_comment": "Beschreibung des Bieres"}
+        "Description": {"type": "string", "_comment": "Beschreibung des Bieres"},
+        "Ingredients": {
+            "type": "array",
+            "_comment": "Zutaten",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Name": {"type": "integer", "_comment": "Name der Zutat"},
+                    "Time": {"type": "integer", "_comment": "Dauer der Zugabe"},
+                    "Amount": {"type": "number", "_comment": "Menge der Zutat"},
+                    "Description": {"type": "string", "_comment": "Beschreibung"}
+                }
+            }
     },
    "required": ["Name", "Style", "Author", "OriginalGravity", "AlcoholContent", "Color", "Bitterness", "PrimaryMash", "Sparge", "BrewhouseEfficiency", "Malts", "Hops", "MashOutTemperature", "InfusionMashTemperature", "MashSteps", "Yeast", "FermentationTemperature", "FermentationTime", "Conditioning", "Carbonation", "CarbonationMethod", "Description"],
    "additionalProperties": false,
    "title": "Recipe"
+    }
 }
